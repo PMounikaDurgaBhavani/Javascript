@@ -84,3 +84,36 @@ console.log(operation.mul());
 let a={};
 console.log(a.address?.street);
 console.log(a.address?.());
+
+
+let sym=Symbol.for("name");
+console.log(Symbol.keyFor(sym));
+
+let user={
+    name:"john",
+    salary:1500,
+    [Symbol.toPrimitive](hint){
+        console.log(hint);
+        return hint=="string" ?  this.name:this.salary;
+    }
+};
+console.log(user);
+console.log(+user);
+console.log(user+500);
+
+
+let user1={
+    name:"Ram",
+    money:"1200",
+
+    toString(){
+        return this.name;
+    },
+    valueOf(){
+        return this.money;
+    }
+};
+
+console.log(user1);
+console.log(+user1);
+console.log(user+500);
