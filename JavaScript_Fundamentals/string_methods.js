@@ -52,4 +52,58 @@ console.log(arr1.concat(obj));
 let arr2=[1,2,3,4,5];
 arr2.forEach((item,index)=>{
     console.log(`${item} is at index ${index}`);
-})
+});
+
+
+
+function unique(arr) {
+    let res=Array.from(new Set(arr));
+    return res;
+  }
+  
+  let values = ["Hare", "Krishna", "Hare", "Krishna",
+    "Krishna", "Krishna", "Hare", "Hare", ":-O"
+  ];
+  
+  console.log( unique(values) );
+
+
+
+  //Map--> The values we stored in the variables until we remove, after removed the data is stored in memory. No garbage collected.
+  //WeakMap--> here after removed the data is garbage collected. the data is removed from the memory.
+  //Set--> stores only unique values.
+  //WeakSet--> it set is inaccessable, the data is removed from the memory.
+
+  let messages=[
+    {text:"Hello",from:"John"},
+    {text:"How goes?",from:"John"},
+    {text:"See you soon",from:"Alice"}
+  ];
+
+  let weakset=new WeakSet();
+  weakset.add(messages[0]);
+  weakset.add(messages[1]);
+  weakset.add(messages[0]);
+  console.log(weakset.has(messages[2]));
+
+  let weakmap=new WeakMap();
+  weakmap.set(messages[0], new Date(2017, 1, 1));
+  console.log(weakmap.get("text"));
+
+
+
+
+  let salaries = {
+    "John": 100,
+    "Pete": 300,
+    "Mary": 250
+  };
+  function sumSalaries(arr){
+    let res=0;
+    for(let i of Object.values(salaries)){
+        res+=i
+    }
+    return res;
+  }
+  console.log( sumSalaries(salaries) );
+  
