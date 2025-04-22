@@ -5,3 +5,5 @@ console.log(2+"2");
 let num=true;
 num=String(num);
 console.log(typeof num);
+let isNum=Number("Hi");
+console.log(isNum);
