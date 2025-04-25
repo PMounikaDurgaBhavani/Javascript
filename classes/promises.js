@@ -1,4 +1,4 @@
-let promise=new Promise((resolve,reject)=>{
+/*let promise=new Promise((resolve,reject)=>{
     resolve(1);
     setTimeout(()=>resolve(2),1000);
 });
@@ -75,7 +75,21 @@ async function loadJson(url){
     let response= await fetch(url);
     if(response.status==200){
         let json=await response.json();
+        return json;
     }
     throw new Error(response.message);
 };
 loadJson('https://javascript.info/no-such-user.json').catch(console.log);
+*/
+
+async function wait() {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+  
+    return 10;
+  }
+  
+  function f() {
+    wait().then(result=>console.log(result));
+  }
+
+f();
