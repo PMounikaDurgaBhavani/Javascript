@@ -1,4 +1,4 @@
-function *Generator(){
+/*function *Generator(){
     yield 1;
     yield 2;
     yield 3;
@@ -120,3 +120,18 @@ async function* Genarate(start,end){
         console.log(i);
     }
 })()
+
+
+
+*/
+
+const products=[
+    {names:"Laptop",price:2600},
+    {names:"Phone",price:5000},
+    {names:"Tablet",price:10000}
+];
+let sum=0;
+products.forEach((item)=>{
+    sum+=item.price;
+});
+console.log(sum);
