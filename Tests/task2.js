@@ -188,4 +188,18 @@ async function tasks(){
     let promise=await Promise.allSettled([task1(),task2(),task3(),task4()]);
     console.log(promise);
 }
-tasks();
+//tasks();
+
+let a={
+    "id":1,
+    "name":"Ram",
+    sample:[1,2,3,4]
+};
+
+let c = JSON.parse(JSON.stringify(a));
+
+console.log(c);
+
+a.id=3;
+
+console.log(c);
