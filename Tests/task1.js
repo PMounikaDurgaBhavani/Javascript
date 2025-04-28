@@ -123,11 +123,11 @@ function Armstrong(n){
     return new Promise(resolve=>{
         setTimeout(()=>resolve(n),500);
     })
-}
+}  
 
 async function Armstrong_print(num){
     let str=String(num);
-    let result=0;
+    let result=0; 
     for(let i of str){
         result+=i**str.length;
     }
@@ -139,4 +139,4 @@ async function Armstrong_print(num){
     }
 }
 
-Armstrong_print(153);
+Armstrong_print(153); 
