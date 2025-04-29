@@ -57,7 +57,15 @@ function Isequal(obj1,obj2){
 }
 
 let obj1 ={name:null}, obj2 = {name:null};
-console.log(Isequal(obj1,obj2));
+//console.log(Isequal(obj1,obj2));
   
 
+
+function merge(a,b){
+    let res={...obj1,...obj2};
+    return res;
+}
+
+let a={name:"Ram",sample:[1,2,3]},b={age:28,sample:[3,5,7]};
+//console.log(merge(obj1,obj2));
 
