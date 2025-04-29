@@ -17,9 +17,7 @@ function split(num){
 let number=[12,6,4,3,9,7,13];
 //split(number);
 
-function equal(num1,num2){
-    return num1===num2;
-}
+
 let res=true;
 function check(obj1, obj2) {
     const keys1 = Object.keys(obj1);
@@ -43,16 +41,17 @@ function check(obj1, obj2) {
     }else{
         res=false;
     }
-    return res;
-  }
-
-function Isequal(obj1,obj2){
-    if(check(obj1,obj2)){
+    if(res){
         return "Objects are equal";
     }else{
         return "Objects are not equal";
     }
-}
+  }
+
+  let obj1={id:1,name:"Ram",salary:50000,task:{completed:3,incomplete:2},sample:{task1:2,task3:3}};
+  let obj2={id:1,salary:50000,sample:{task3:3,task1:2},name:"Ram",task:{incomplete:2,completed:3}};
+  console.log(check(obj1,obj2));
+  
 
 
 // const obj1 = {
@@ -98,6 +97,3 @@ function Isequal(obj1,obj2){
 //     }
 //   };
   
-let obj1={id:1,name:"Ram",salary:50000,task:{completed:3,incomplete:2},sample:{task1:2,task3:3}};
-let obj2={id:1,salary:50000,sample:{task3:3,task1:2},name:"Ram",task:{incomplete:2,completed:3}};
-console.log(Isequal(obj1,obj2));
