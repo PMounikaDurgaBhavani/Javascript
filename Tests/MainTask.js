@@ -16,19 +16,88 @@ function split(num){
 
 let number=[12,6,4,3,9,7,13];
 //split(number);
-let res=[]
-function check(obj1,obj2){
-    let a=Object.keys(obj1);
-    for(let i of a){
-        if(JSON.stringify(obj1[i]).split(",").length>1){
-            check(obj1[i],obj2[i]);
+
+function equal(num1,num2){
+    return num1===num2;
+}
+let res=true;
+function check(obj1, obj2) {
+    const keys1 = Object.keys(obj1);
+    const keys2 = Object.keys(obj2);
+    const values1=Object.values(obj1);
+    const values2=Object.values(obj2);
+    if(values1.length===values2.length && keys1.length===keys2.length){
+        if(JSON.stringify(keys2.sort())===JSON.stringify(keys1.sort())){
+            for(let i of keys1){
+                if(JSON.stringify(obj1[i]).split(",").length>1){
+                    check(obj1[i],obj2[i]);
+                }
+                else if(obj1[i]!==obj2[i]){
+                    res=false;
+                    break;
+                }
+            }
         }else{
-            res.push(obj1[i]==obj2[i]);
+            res=false;
         }
+    }else{
+        res=false;
+    }
+    return res;
+  }
+
+function Isequal(obj1,obj2){
+    if(check(obj1,obj2)){
+        return "Objects are equal";
+    }else{
+        return "Objects are not equal";
     }
 }
+
+
+// const obj1 = {
+//     name: "Alice",
+//     details: {
+//       age: 30,
+//       address: {
+//         city: "New York",
+//         zip: 10001
+//       }
+//     }
+//   };
+  
+//   const obj2 = {
+//     name: "Alice",
+//     details: {
+//       age: 30,
+//       address: {
+//         city: "New York",
+//         zip: 10001
+//       }
+//     }
+//   };
+// const obj1 = {
+//     name: "Bob",
+//     details: {
+//       age: 25,
+//       address: {
+//         city: "Los Angeles",
+//         zip: 90001
+//       }
+//     }
+//   };
+  
+//   const obj2 = {
+//     name: "Bob",
+//     details: {
+//       age: 25,
+//       address: {
+//         city: "San Francisco",
+//         zip: 90001
+//       }
+//     }
+//   };
+  
 let obj1={id:1,name:"Ram",salary:50000,task:{completed:3,incomplete:2},sample:{task1:2,task3:3}};
 let obj2={id:1,salary:50000,sample:{task3:3,task1:2},name:"Ram",task:{incomplete:2,completed:3}};
-check(obj1,obj2);
-let result=res.every(each=>each);
-console.log(result);
+console.log(Isequal(obj1,obj2));
